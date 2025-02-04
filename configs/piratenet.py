@@ -22,6 +22,7 @@ def get_config():
     # Arch
     config.arch = arch = ml_collections.ConfigDict()
     arch.arch_name = "PirateNet"
+    print('running config: ', arch.arch_name)
     arch.num_layers = 3
     arch.hidden_dim = 64 #256
     arch.out_dim = 2

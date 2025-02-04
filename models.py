@@ -122,9 +122,10 @@ class AlievPanfilov3D(ForwardIVP):
 
     @partial(jit, static_argnums=(0,))
     def losses(self, params, batch):
-        
         data_batch = batch["data"]
         batch = batch["res"]
+
+        data_coords_batch, V_train = data_batch
         # Initial condition loss
         V_pred_ic = vmap(self.u_net, (None, None, 0, 0, 0))(params, self.t0, self.x_star, self.y_star, self.z_star)
         ics_loss = jnp.mean((self.V0 - V_pred_ic) ** 2)
@@ -136,24 +137,29 @@ class AlievPanfilov3D(ForwardIVP):
 
         # Data loss
         # split all data into train and test randomly
-        coords_train, self.coords_test, V_train, self.V_test = train_test_split( \
-                self.coords, self.V_ref, test_size=0.8, random_state=42)
-        V_pred_data = vmap(self.u_net, (None, 0, 0, 0, 0))\
-            (params, coords_train[:, 0], coords_train[:, 1], coords_train[:, 2], coords_train[:, 3])
-        print('The shape of V_pred_data is:', V_pred_data.shape)
-        print('The shape of V_train is:', V_train.shape)
-        V_train = jnp.reshape(V_train, V_pred_data.shape)
-        # V_loss = jnp.sqrt(jnp.mean((V_ref - V_pred_data) ** 2))
+        # coords_train, self.coords_test, V_train, self.V_test = train_test_split( \
+        #         self.coords, self.V_ref, test_size=0.8, random_state=42)
+        # V_pred_data = vmap(self.u_net, (None, 0, 0, 0, 0))\
+        #     (params, coords_train[:, 0], coords_train[:, 1], coords_train[:, 2], coords_train[:, 3])
+        # print('The shape of V_pred_data is:', V_pred_data.shape)
+        # print('The shape of V_train is:', V_train.shape)
+        # V_train = jnp.reshape(V_train, V_pred_data.shape)
+        # # V_loss = jnp.sqrt(jnp.mean((V_ref - V_pred_data) ** 2))
+        V_pred_data = self.V_pred_fn\
+            (params, data_coords_batch[:, 0], data_coords_batch[:, 1],\
+              data_coords_batch[:, 2], data_coords_batch[:, 3])
+        print('data batch shape:', data_coords_batch.shape)
+        print('data batch[:, 0] shape:', data_coords_batch[:, 0].shape)
         V_loss = jnp.linalg.norm(V_train - V_pred_data) # change way of calculating loss, should be the same anyway
-
+        
         # Residual loss
         if self.config.weighting.use_causal == True:
             l, w = self.res_and_w(params, batch)
             res_loss = jnp.mean(l * w)
         else:
-            print('params shape:', jnp.shape(params))  # Should not be ()
-            print('batch shape:', batch.shape)  # Should be (N, 4)
-            print('batch[:, 0] shape:', batch[:, 0].shape)  # Should be (N,)
+            print('params shape:', jnp.shape(params))
+            print('res batch shape:', batch.shape)
+            print('res batch[:, 0] shape:', batch[:, 0].shape)
 
             rV_pred, rW_pred = \
                 self.r_pred_fn(params, batch[:, 0], batch[:, 1], batch[:, 2], batch[:, 3])
