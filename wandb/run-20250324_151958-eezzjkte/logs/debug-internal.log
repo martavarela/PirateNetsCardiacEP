@@ -1,0 +1,15 @@
+{"time":"2025-03-24T15:19:58.338255Z","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/Users/martavarela/Documents/GitHub/PirateNetsCardiacEP/wandb/run-20250324_151958-eezzjkte/logs/debug-core.log"}
+{"time":"2025-03-24T15:19:58.449932Z","level":"INFO","msg":"created new stream","id":"eezzjkte"}
+{"time":"2025-03-24T15:19:58.449984Z","level":"INFO","msg":"stream: started","id":"eezzjkte"}
+{"time":"2025-03-24T15:19:58.450217Z","level":"INFO","msg":"handler: started","stream_id":"eezzjkte"}
+{"time":"2025-03-24T15:19:58.450278Z","level":"INFO","msg":"writer: Do: started","stream_id":"eezzjkte"}
+{"time":"2025-03-24T15:19:58.450466Z","level":"INFO","msg":"sender: started","stream_id":"eezzjkte"}
+{"time":"2025-03-24T15:19:58.729394Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-24T15:20:02.179996Z","level":"INFO","msg":"stream: closing","id":"eezzjkte"}
+{"time":"2025-03-24T15:20:02.181499Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-24T15:20:02.183031Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-24T15:20:02.805827Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-24T15:20:03.072156Z","level":"INFO","msg":"writer: Close: closed","stream_id":"eezzjkte"}
+{"time":"2025-03-24T15:20:03.072625Z","level":"INFO","msg":"sender: closed","stream_id":"eezzjkte"}
+{"time":"2025-03-24T15:20:03.073701Z","level":"INFO","msg":"handler: closed","stream_id":"eezzjkte"}
+{"time":"2025-03-24T15:20:03.07374Z","level":"INFO","msg":"stream: closed","id":"eezzjkte"}
