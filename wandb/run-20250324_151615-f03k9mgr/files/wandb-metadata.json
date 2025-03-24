@@ -1,0 +1,44 @@
+{
+  "os": "macOS-15.3.2-arm64-arm-64bit-Mach-O",
+  "python": "CPython 3.13.1",
+  "startedAt": "2025-03-24T15:16:15.789821Z",
+  "program": "/Users/martavarela/Documents/GitHub/PirateNetsCardiacEP/main.py",
+  "codePath": "main.py",
+  "git": {
+    "remote": "https://github.com/annien094/PirateNetsCardiacEP.git",
+    "commit": "41d083018c9d99db451e9d193fd1008bf37dd3ad"
+  },
+  "email": "marta.varela@imperial.ac.uk",
+  "root": "/Users/martavarela/Documents/GitHub/PirateNetsCardiacEP",
+  "host": "MacBook-Pro-de-Marta.local",
+  "executable": "/Library/Frameworks/Python.framework/Versions/3.13/bin/python3",
+  "codePathLocal": "main.py",
+  "cpu_count": 10,
+  "cpu_count_logical": 10,
+  "disk": {
+    "/": {
+      "total": "994662584320",
+      "used": "151436730368"
+    },
+    "/System/Volumes/Data": {
+      "total": "994662584320",
+      "used": "151436730368"
+    }
+  },
+  "memory": {
+    "total": "17179869184"
+  },
+  "cpu": {
+    "count": 10,
+    "countLogical": 10
+  },
+  "apple": {
+    "name": "Apple M1 Pro",
+    "ecpuCores": 2,
+    "pcpuCores": 8,
+    "gpuCores": 16,
+    "memoryGb": 16,
+    "swapTotalBytes": "5368709120",
+    "ramTotalBytes": "17179869184"
+  }
+}

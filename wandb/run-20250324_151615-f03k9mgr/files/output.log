@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "/Users/martavarela/Documents/GitHub/PirateNetsCardiacEP/main.py", line 40, in <module>
+    app.run(main)
+    ~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/absl/app.py", line 316, in run
+    _run_main(main, args)
+    ~~~~~~~~~^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/absl/app.py", line 261, in _run_main
+    sys.exit(main(argv))
+             ~~~~^^^^^^
+  File "/Users/martavarela/Documents/GitHub/PirateNetsCardiacEP/main.py", line 32, in main
+    train.train_and_evaluate(FLAGS.config, FLAGS.workdir)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/martavarela/Documents/GitHub/PirateNetsCardiacEP/train.py", line 67, in train_and_evaluate
+    model = models.AlievPanfilov3D(config, V0, V, t_star, x_star, y_star, z_star, coords)
+  File "/Users/martavarela/Documents/GitHub/PirateNetsCardiacEP/models.py", line 15, in __init__
+    super().__init__(config)
+    ~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/jaxpi/models.py", line 179, in __init__
+    super().__init__(config)
+    ~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/jaxpi/models.py", line 107, in __init__
+    self.state = _create_train_state(config)
+                 ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/jaxpi/models.py", line 83, in _create_train_state
+    arch = _create_arch(config.arch)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/jaxpi/models.py", line 55, in _create_arch
+    raise NotImplementedError(f"Arch {config.arch_name} not supported yet!")
+NotImplementedError: Arch PirateNet not supported yet!
